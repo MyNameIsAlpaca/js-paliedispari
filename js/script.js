@@ -72,6 +72,7 @@ let userNumberSection = document.getElementById("user-number")
 
 let userChoose;
 
+
 //creo funzionamento se l'utente ha scelto pari
 
 evenChoose.addEventListener("click", function(){
@@ -82,7 +83,7 @@ evenChoose.addEventListener("click", function(){
 
     userNumberSection.style.display = "flex";
 
-    userChoose = "even";
+    userChoose = "pari";
 
 });
 
@@ -96,9 +97,17 @@ oddChoose.addEventListener("click", function(){
 
     userNumberSection.style.display = "flex";
 
-    userChoose = "odd";
+    userChoose = "dispari";
 
 });
+
+//creo un numero random per il bot 
+
+function randomNumber(max) {
+    return Math.floor(Math.random() * max + 1);
+}
+
+let pcNumber = randomNumber(5);
 
 //creo raccolta numero utente
 
@@ -111,6 +120,32 @@ sendNumber.addEventListener("click", function(){
     } else {
         userNumberSection.style.display = "none";
     }
+    //Sommo i due numeri e decido se il totale è pari o dispari
     
-
+    function isEvenOrOdd(number) {
+      
+        if(number % 2 == 0) {
+          
+          return "il risultato è pari";
+          
+        } else {
+          
+          return 'il risultato è dispari';
+          
+        }
+    }
+    
+    let resultOfGame = (isEvenOrOdd(Number(chooseNumber) + Number(pcNumber)));
+    
+    if(resultOfGame == "il risultato è pari" && userChoose == "pari"){
+        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai vinto!`;
+    } else if (resultOfGame == "il risultato è dispari" && userChoose == "dispari"){
+        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai vinto!`;
+    } else if (resultOfGame == "il risultato è dispari" && userChoose == "pari"){
+        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai perso!`;
+    } else if (resultOfGame == "il risultato è pari" && userChoose == "dispari"){
+        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai perso!`;
+    }
 });
+
+
