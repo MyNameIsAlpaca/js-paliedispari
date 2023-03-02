@@ -43,9 +43,9 @@ sendPali.addEventListener("click", function(){
     let reverseWord = reversedArray.toString();
 
     if (rightWord === reverseWord) {
-        outputResult.innerHTML = "È una parola palindroma! :D";
+        document.getElementById("palindroma").style.display = "flex";
     } else {
-        outputResult.innerHTML = "Non è mai nella vita una parola palindroma! :(";
+        document.getElementById("noPalindroma").style.display = "flex";
     }
 
 });
@@ -119,33 +119,34 @@ sendNumber.addEventListener("click", function(){
         alert("Scegli un numero compreso fra 1 e 5")
     } else {
         userNumberSection.style.display = "none";
+
+        function isEvenOrOdd(number) {
+          
+            if(number % 2 == 0) {
+              
+              return "il risultato è pari";
+              
+            } else {
+              
+              return 'il risultato è dispari';
+              
+            }
+        }
+        
+        let resultOfGame = (isEvenOrOdd(Number(chooseNumber) + Number(pcNumber)));
+        
+        if(resultOfGame == "il risultato è pari" && userChoose == "pari"){
+            document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai vinto!`;
+        } else if (resultOfGame == "il risultato è dispari" && userChoose == "dispari"){
+            document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai vinto!`;
+        } else if (resultOfGame == "il risultato è dispari" && userChoose == "pari"){
+            document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai perso!`;
+        } else if (resultOfGame == "il risultato è pari" && userChoose == "dispari"){
+            document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai perso!`;
+        }
     }
     //Sommo i due numeri e decido se il totale è pari o dispari
     
-    function isEvenOrOdd(number) {
-      
-        if(number % 2 == 0) {
-          
-          return "il risultato è pari";
-          
-        } else {
-          
-          return 'il risultato è dispari';
-          
-        }
-    }
-    
-    let resultOfGame = (isEvenOrOdd(Number(chooseNumber) + Number(pcNumber)));
-    
-    if(resultOfGame == "il risultato è pari" && userChoose == "pari"){
-        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai vinto!`;
-    } else if (resultOfGame == "il risultato è dispari" && userChoose == "dispari"){
-        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai vinto!`;
-    } else if (resultOfGame == "il risultato è dispari" && userChoose == "pari"){
-        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai perso!`;
-    } else if (resultOfGame == "il risultato è pari" && userChoose == "dispari"){
-        document.getElementById("winner").innerHTML = `Hai scelto ${userChoose}, il numero che hai lanciato era ${chooseNumber} mentre il tuo avversario ha lanciato ${pcNumber}, quindi ${resultOfGame}. hai perso!`;
-    }
 });
 
 

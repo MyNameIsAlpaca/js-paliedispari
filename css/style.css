@@ -7,3 +7,87 @@
 #user-number {
     display: none;
 }
+
+body{
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    backdrop-filter: blur(3px);
+    font-family: sans-serif;
+    height: 100vh;
+    color: white;
+}
+
+main {
+    width: 1000px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.palindromi, .pariodispari {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 70px;
+}
+
+.palindromi h1 {
+    text-transform: uppercase;
+    font-size: 3em;
+}
+
+.palindromi h3 {
+    color: rgb(193, 247, 247);
+    font-size: 2em;
+}
+
+.input, .btn {
+    background-color: white;
+    border-radius: 25px;
+    border: 2px solid darkred;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.pali-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#palindroma, #noPalindroma {
+    display: none;
+    font-size: 20px;
+    margin-top: 20px;
+    background-color: rgb(53, 8, 8);
+    padding: 10px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.pariodispari {
+    padding-top: 30px;
+}
+
+.pariodispari h2 {
+    font-size: 3em;
+    background-color: darkred;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.pariodispari .input {
+    width: 280px;
+}
+
+#winner {
+    background-color: gray;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 25px;
+}
+
