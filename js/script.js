@@ -49,3 +49,68 @@ sendPali.addEventListener("click", function(){
     }
 
 });
+
+/*Pari o dispari
+
+1 chiediamo all'utente di scegliere fra pari o dispari
+2 chiediamo all'utente di scegliere un numero compreso tra 1 e 5 
+3 generiamo un numero random per il pc da 1 a 5
+4 sommiamo i due numeri
+5 stabiliamo se la somma è pari o dispari
+6 decretiamo il vincitore
+*/
+
+//collego a javascript gli elementi html
+
+let oddChoose = document.getElementById("odd");
+
+let evenChoose = document.getElementById("even");
+
+let sendNumber = document.getElementById("send-number");
+
+let userNumberSection = document.getElementById("user-number")
+
+let userChoose;
+
+//creo funzionamento se l'utente ha scelto pari
+
+evenChoose.addEventListener("click", function(){
+
+    oddChoose.style.display = "none";
+
+    evenChoose.style.display = "none";
+
+    userNumberSection.style.display = "flex";
+
+    userChoose = "even";
+
+});
+
+//creo funzionamento se l'utente ha scelto dispari
+
+oddChoose.addEventListener("click", function(){
+
+    evenChoose.style.display = "none";
+
+    oddChoose.style.display = "none";
+
+    userNumberSection.style.display = "flex";
+
+    userChoose = "odd";
+
+});
+
+//creo raccolta numero utente
+
+sendNumber.addEventListener("click", function(){
+
+    let chooseNumber = document.getElementById("choose-number").value;
+    
+    if(chooseNumber < 1 || chooseNumber > 5) {
+        alert("Scegli un numero compreso fra 1 e 5")
+    } else {
+        userNumberSection.style.display = "none";
+    }
+    
+
+});
