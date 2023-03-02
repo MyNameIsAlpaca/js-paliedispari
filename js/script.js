@@ -11,6 +11,8 @@
 
 let word;
 
+let outputResult = document.getElementById("output")
+
 //Collego gli elementi html al javascript
 
 let wordPali = document.getElementById("word-pali");
@@ -36,13 +38,14 @@ sendPali.addEventListener("click", function(){
 
     //decreto se la parola è un palindromo
 
-    for (var i = 0; i < reversedArray.length; ++i) {
-        if (rightArray[i] == reversedArray[i]){
-        console.log("È una parola palindroma!");
-      } else {
-        console.log("Non è mai nella vita una parola palindroma :(")
-      }
+    let rightWord = rightArray.toString();
 
+    let reverseWord = reversedArray.toString();
+
+    if (rightWord === reverseWord) {
+        outputResult.innerHTML = "È una parola palindroma! :D";
+    } else {
+        outputResult.innerHTML = "Non è mai nella vita una parola palindroma! :(";
     }
 
 });
