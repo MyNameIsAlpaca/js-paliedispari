@@ -44,8 +44,10 @@ sendPali.addEventListener("click", function(){
 
     if (rightWord === reverseWord) {
         document.getElementById("palindroma").style.display = "flex";
+        document.getElementById("noPalindroma").style.display = "none";
     } else {
         document.getElementById("noPalindroma").style.display = "flex";
+        document.getElementById("palindroma").style.display = "none";
     }
 
 });
